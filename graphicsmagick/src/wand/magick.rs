@@ -67,6 +67,8 @@ pub struct MagickWand<'a> {
     phantom: PhantomData<&'a [u8]>,
 }
 
+unsafe impl Send for MagickWand<'_> {}
+
 impl MagickWand<'_> {
     /// Construct an empty MagickWand.
     ///

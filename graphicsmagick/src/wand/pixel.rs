@@ -20,6 +20,8 @@ pub struct PixelWand {
     wand: NonNull<graphicsmagick_sys::PixelWand>,
 }
 
+unsafe impl Send for PixelWand {}
+
 impl PixelWand {
     pub fn new() -> Self {
         assert_initialized();
