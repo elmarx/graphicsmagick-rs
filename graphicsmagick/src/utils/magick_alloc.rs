@@ -14,6 +14,8 @@ use std::{
 #[repr(transparent)]
 struct MagickAlloc(*mut c_void);
 
+unsafe impl Send for MagickAlloc {}
+
 impl MagickAlloc {
     unsafe fn new(ptr: *mut c_void) -> Self {
         Self(ptr)

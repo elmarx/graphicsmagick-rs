@@ -25,6 +25,8 @@ pub struct DrawingWand {
     wand: NonNull<graphicsmagick_sys::DrawingWand>,
 }
 
+unsafe impl Send for DrawingWand {}
+
 impl Drop for DrawingWand {
     fn drop(&mut self) {
         unsafe {
